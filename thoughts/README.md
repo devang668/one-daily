@@ -4,3 +4,6 @@
 
 他们是可以合并的。散落到各个地方，占用我的存储空间。
 
+https://github.com/hangwin/mcp-chrome/tree/master  
+
+

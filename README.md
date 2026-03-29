@@ -1,6 +1,8 @@
 # one-daily
 good good study ，day day up
 
+https://github.com/devang668/one-daily/tree/main/thoughts
+
 [快速开始吧](https://github.com/devang668/one-daily/new/main/thoughts)
 
 ## 写作方式

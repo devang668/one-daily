@@ -6,6 +6,7 @@ good good study ，day day up
 ## 写作方式
 
 现在不需要手写 Jekyll 的 `_posts/YYYY-MM-DD-title.md` 和 front matter 了。
+站点也已经支持 PWA 风格安装和离线缓存，移动端访问会更像一个轻量应用。
 
 平时只要这样写：
 

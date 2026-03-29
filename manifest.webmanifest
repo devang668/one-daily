@@ -1,0 +1,23 @@
+---
+---
+{
+  "id": "{{ '/' | relative_url }}",
+  "name": "{{ site.title }}",
+  "short_name": "OneDaily",
+  "description": "{{ site.description }}",
+  "lang": "{{ site.lang | default: 'zh-CN' }}",
+  "start_url": "{{ '/' | relative_url }}",
+  "scope": "{{ '/' | relative_url }}",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f6efe4",
+  "theme_color": "#ea6a2a",
+  "icons": [
+    {
+      "src": "{{ '/assets/icons/app-icon.svg' | relative_url }}",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

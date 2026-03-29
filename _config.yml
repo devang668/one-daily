@@ -14,3 +14,11 @@ permalink: /:title/
 
 github:
   repository_url: https://github.com/devang668/one-daily
+
+exclude:
+  - thoughts
+  - scripts
+  - README.md
+  - LICENSE
+  - Gemfile
+  - Gemfile.lock

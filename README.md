@@ -30,3 +30,16 @@ good good study ，day day up
 - 如果文件名里没有日期，就自动使用这个文件最近一次提交的日期。
 - `thoughts/README.md` 不会被当成文章发布。
 - 自动发布只扫描 `thoughts/` 目录，其他说明文件不会被误发到博客上。
+
+## Cloudflare Pages
+
+如果部署到 Cloudflare Pages，并使用根域名或子域名，比如 `https://one.devang.top/`，不要直接用默认的 `_config.yml`，否则 `baseurl: /one-daily` 会让样式和脚本地址指错。
+
+Cloudflare Pages 建议这样填：
+
+- Production branch: `main`
+- Framework preset: `Jekyll` 或 `None`
+- Build command: `python scripts/generate_posts.py && bundle exec jekyll build --config _config.yml,_config.cloudflare.yml`
+- Build output directory: `_site`
+
+这样 GitHub Pages 仍然走 `/one-daily/`，Cloudflare Pages 则会自动走根路径 `/`。

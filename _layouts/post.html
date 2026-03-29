@@ -20,10 +20,10 @@
 </head>
 <body>
   <header>
-    <a href="/">{{ site.title }}</a>
+    <a href="{{ '/' | relative_url }}">{{ site.title }}</a>
   </header>
   <div class="content">
-    <div class="back-link"><a href="/">← 返回首页</a></div>
+    <div class="back-link"><a href="{{ '/' | relative_url }}">← 返回首页</a></div>
     <article>
       <h1>{{ page.title }}</h1>
       <p class="post-date">{{ page.date | date: "%Y-%m-%d" }}</p>
@@ -33,7 +33,7 @@
     </article>
   </div>
   <footer>
-    <a href="/about">关于</a> | <a href="https://github.com/devang668" target="_blank">GitHub</a>
+    <a href="{{ '/about' | relative_url }}">关于</a> | <a href="https://github.com/devang668" target="_blank">GitHub</a>
   </footer>
 </body>
 </html>

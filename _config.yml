@@ -1,0 +1,13 @@
+title: 我的博客
+description: 个人思考与笔记
+theme: minima
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+future: true
+show_drafts: false
+permalink: /:title/
+
+github:
+  repository_url: https://github.com/devang668/one-daily

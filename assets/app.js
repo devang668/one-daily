@@ -3,6 +3,7 @@
 let deferredPrompt = null;
 
 const installButton = document.querySelector(".install-button");
+const mobileNav = document.querySelector(".mobile-nav");
 const isStandalone = window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone;
 
 if (isStandalone) {
@@ -43,4 +44,25 @@ if (installButton) {
     deferredPrompt = null;
     installButton.hidden = true;
   });
+}
+
+if (mobileNav) {
+  const mobileBreakpoint = window.matchMedia("(max-width: 759px)");
+
+  const updateMobileNavVisibility = () => {
+    if (!mobileBreakpoint.matches) {
+      mobileNav.classList.remove("is-visible");
+      return;
+    }
+
+    const threshold = 120;
+    const scrollBottom = window.scrollY + window.innerHeight;
+    const pageBottom = document.documentElement.scrollHeight - threshold;
+    mobileNav.classList.toggle("is-visible", scrollBottom >= pageBottom);
+  };
+
+  updateMobileNavVisibility();
+  window.addEventListener("scroll", updateMobileNavVisibility, { passive: true });
+  window.addEventListener("resize", updateMobileNavVisibility);
+  mobileBreakpoint.addEventListener("change", updateMobileNavVisibility);
 }

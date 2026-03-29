@@ -2,3 +2,30 @@
 good good study ，day day up
 
 [快速开始吧](https://github.com/devang668/one-daily/new/main/thoughts)
+
+## 写作方式
+
+现在不需要手写 Jekyll 的 `_posts/YYYY-MM-DD-title.md` 和 front matter 了。
+
+平时只要这样写：
+
+1. 在 `thoughts/` 新建一个 `.md` 文件，文件名可以随意。
+2. 第一行写标题。
+3. 空一行后直接写正文。
+4. 提交推送，GitHub Pages 会自动更新。
+
+示例：
+
+```md
+今天的小想法
+
+这里直接写正文。
+想贴链接、图片、代码块都可以。
+```
+
+补充规则：
+
+- 如果文件名里带日期，比如 `0329.md`、`2026-03-29-ai.md`，系统会优先用它。
+- 如果文件名里没有日期，就自动使用这个文件最近一次提交的日期。
+- `thoughts/README.md` 不会被当成文章发布。
+- 自动发布只扫描 `thoughts/` 目录，其他说明文件不会被误发到博客上。

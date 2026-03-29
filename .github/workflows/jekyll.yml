@@ -34,6 +34,7 @@ jobs:
         env:
           JEKYLL_ENV: production
         run: |
+          python scripts/generate_posts.py
           bundle exec jekyll build
 
       - name: Upload artifact

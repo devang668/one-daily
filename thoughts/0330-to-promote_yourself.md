@@ -14,3 +14,11 @@ devang668/jbook
 还有一件事情就是要学会直面恐惧，直面恐惧。
 
 总是逃避呢，总是解决不了问题的。
+
+---
+
+今天还发现一个有趣的监控claw的项目
+
+https://github.com/seekcontext/ClawProbe
+
+---

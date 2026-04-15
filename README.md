@@ -1,7 +1,8 @@
 # one-daily
 good good study ，day day up
 
-
+注意如果要克隆一个自己使用
+参考`https://github.com/devang668/jbook` 哦,他做了一些优化会更适合一些，他那个是在这个one-daily上进一步优化的。
 
 [网站样子](https://daily.devang.top/)
 
@@ -49,3 +50,11 @@ Cloudflare Pages 建议这样填：
 - Build output directory: `_site`
 
 这样 GitHub Pages 仍然走 `/one-daily/`，Cloudflare Pages 则会自动走根路径 `/`。
+
+
+
+# 如果喜欢，给个星星鼓励一下
+
+我的微信
+<img width="1080" height="1198" alt="image" src="https://github.com/user-attachments/assets/35b869ea-81dd-416e-a387-2a161f323147" />
+

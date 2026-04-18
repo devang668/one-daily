@@ -29,8 +29,9 @@ echo 5. git status
 echo 6. Set custom project path (manual input)
 echo 7. Clear current project path
 echo 8. Exit
+echo 9. [Quick Push] Add + Commit(Time) + Push  <-- 新增
 echo.
-set /p choice=Enter your selection (1-8): 
+set /p choice=Enter your selection (1-9): 
 
 if "%choice%"=="1" goto GitPull
 if "%choice%"=="2" goto GitAdd
@@ -40,10 +41,46 @@ if "%choice%"=="5" goto GitStatus
 if "%choice%"=="6" goto SetCustomPath
 if "%choice%"=="7" goto ClearPath
 if "%choice%"=="8" goto ExitScript
+if "%choice%"=="9" goto QuickPush
 
 echo Invalid option. Please try again.
 timeout /t 2 /nobreak >nul
 goto MainMenu
+
+:: --- 新增的一键推送逻辑 ---
+:QuickPush
+if not defined GIT_ROOT (
+    echo Error: No active Git project path set.
+    pause
+    goto MainMenu
+)
+cd /d "!GIT_ROOT!"
+
+:: 获取当前时间并格式化 (例如: 2026-04-18 15:30)
+set "t=%date% %time%"
+set "timestamp=!t:~0,16!"
+
+echo.
+echo === Starting Quick Push ===
+echo Current Time: !timestamp!
+echo.
+
+echo Step 1: git add .
+git add .
+
+echo.
+echo Step 2: git commit -m "Backup: !timestamp!"
+git commit -m "Backup: !timestamp!"
+
+echo.
+echo Step 3: git push
+git push
+
+echo.
+echo === Quick Push Completed ===
+pause
+goto MainMenu
+:: -----------------------
 
 :GitPull
 if not defined GIT_ROOT (
@@ -162,32 +199,24 @@ exit /b
 :: Fixed Function: Find Git root with depth limit (prevents infinite loops)
 :FindGitRoot
 set "dir=%~1"
-set "max_depth=10"  :: Limit search to 10 parent folders (adjust if needed)
+set "max_depth=10"
 set "current_depth=0"
 
 :FindLoop
-:: Stop if max depth is reached
 if !current_depth! gtr !max_depth! (
     set "GIT_ROOT="
     exit /b
 )
-
-:: Check for .git folder
 if exist "%dir%\.git" (
     set "GIT_ROOT=%dir%"
-    :: Sanitize path (remove trailing backslash)
     if "!GIT_ROOT:~-1!"=="\" set "GIT_ROOT=!GIT_ROOT:~0,-1!"
     exit /b
 )
-
-:: Stop at drive root (e.g., C:\)
 if "%dir:~1%"==":\" (
     set "GIT_ROOT="
     exit /b
 )
-
-:: Move to parent directory
 for %%F in ("%dir%") do set "dir=%%~dpF"
-set "dir=!dir:~0,-1!"  :: Remove trailing backslash
-set /a current_depth+=1  :: Increment depth counter
+set "dir=!dir:~0,-1!"
+set /a current_depth+=1
 goto FindLoop

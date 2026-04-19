@@ -6,6 +6,9 @@ good good study ，day day up
 
 [网站样子](https://daily.devang.top/)
 
+已经打算重新使用python本地构建了，所以新的blog位于 https://devang.top
+
+
 [快速开始吧](https://github.com/devang668/one-daily/new/main/thoughts) 
 
  也可复制  `https://github.com/devang668/one-daily/tree/main/thoughts`
